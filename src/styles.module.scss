@@ -1,0 +1,57 @@
+/* add css module styles here (optional) */
+
+.emoji_picker {
+  &__main {
+    width: 315px;
+    height: 400px;
+    border-radius: 25px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    height: 50px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  &__footer {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    height: 50px;
+    border-top: 1px solid #dee2e6;
+    span {
+      margin-right: 25px;
+      font-size: 1.5rem;
+    }
+  }
+  &__container {
+    height: 300px;
+    overflow-y: scroll;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 35px);
+    grid-gap: 10px;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  &__title {
+    font-size: 1.3rem;
+    width: fit-content;
+    padding-left: 15px;
+  }
+  &__list__item {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.9;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background-color: #e9ecef;
+    }
+  }
+}
