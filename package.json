@@ -53,6 +53,8 @@
   "dependencies": {
     "emojis-json": "git+https://github.com/danielkanangila/emojis-json.git#master",
     "node-sass": "^4.14.1",
+    "react-hooks": "git+https://github.com/danielkanangila/react-hooks.git#master",
+    "react-on-screen": "^2.1.1",
     "styled-components": "^5.1.1"
   }
 }
