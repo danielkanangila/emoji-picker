@@ -4,9 +4,11 @@ $gray-300: #dee2e6;
 $gray-200: #e9ecef;
 $gray-50: #fafafa;
 $primary: #2196f3;
-input {
+input,
+button {
   outline: none;
   border: none;
+  background: none;
 }
 
 .emoji_picker {
@@ -23,7 +25,7 @@ input {
     display: flex;
     flex-direction: column;
     height: 95px;
-    border-bottom: 1px solid $gray-300;
+    // border-bottom: 1px solid $gray-300;
   }
   &__search {
     height: 55px;
@@ -63,7 +65,7 @@ input {
     height: 40px;
     border-top: 1px solid $gray-300;
     &__item {
-      width: 40px;
+      width: 35px;
       height: 40px;
       font-size: 1.1rem;
       text-align: center;
@@ -114,12 +116,33 @@ input {
     grid-row-gap: 10px;
     margin: 0 auto;
     width: fit-content;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 25px;
+      align-items: center;
+      border-top: 1px solid $gray-300;
+      border-bottom: 1px solid $gray-300;
+      margin-bottom: 15px;
+      button {
+        font-weight: 800;
+        padding: 5px 15px;
+        color: $primary;
+        transition: 0.3s;
+        border-radius: 25px;
+        cursor: pointer;
+        &:hover {
+          background-color: lighten($color: $primary, $amount: 40);
+        }
+      }
+    }
   }
   &__title {
     font-size: 1.3rem;
     width: fit-content;
-    padding-left: 25px;
+    padding: 0;
+    margin: 0;
   }
   &__list__item {
     width: 33px;
