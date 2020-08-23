@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useLocalStorage } from 'react-hooks'
 import emojis from 'emojis-json'
 
@@ -71,6 +71,10 @@ const Emoji = ({ name, emoji, onHover, onClick }) => {
 }
 
 const Tabs = () => {
+  const [activeIndex, setIsActiveIndex] = useState(0)
+  const handleClick = (to, index) => {
+    setIsActiveIndex(index)
+  }
   return (
     <div className={styles.emoji_picker__tabs}>
       {emojis.map((item, idx) => (
@@ -78,32 +82,26 @@ const Tabs = () => {
           key={idx}
           emoji={item.illustration}
           title={item.name}
-          onClick={(to) => console.log(to)}
+          onClick={handleClick}
+          isActive={activeIndex === idx}
+          index={idx}
         />
       ))}
     </div>
   )
 }
 
-const TabLink = ({ title, emoji, onClick }) => {
-  const [isActive, setIsActive] = useState(false)
-  const className = styles.emoji_picker__tabs__item__active
-
-  useEffect(() => {
-    return () => {
-      setIsActive(false)
-    }
-  }, [])
+const TabLink = ({ index, isActive, title, emoji, onClick }) => {
+  const activeClassName = styles.emoji_picker__tabs__item__active
 
   const handleClick = () => {
-    setIsActive(true)
-    onClick(title.replace(/&|\s/g, ''))
+    onClick(title.replace(/&|\s/g, ''), index)
   }
   return (
     <div
       onClick={handleClick}
       className={`${styles.emoji_picker__tabs__item} ${
-        isActive ? className : ''
+        isActive ? activeClassName : ''
       }`}
     >
       {emoji}
